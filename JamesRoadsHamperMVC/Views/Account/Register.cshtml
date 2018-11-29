@@ -1,0 +1,46 @@
+﻿@model AccountRegisterViewModel
+
+<div>
+    <h3>Register your Grande Gift account here!</h3>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form asp-controller="Account" asp-action="Register" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="mt-2">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" type="text" />
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+
+                <div class="mt-2">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control"  />
+                    <span asp-validation-for="LastName"></span>
+                </div>
+                <div class="mt-2">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control"  />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="mt-2">
+                    <label asp-for="Password"></label>
+                    <input type="password" asp-for="Password" class="form-control"  />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="mt-2">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input type="password" asp-for="ConfirmPassword" class="form-control"  />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div class="mt-2">
+                    <input type="submit" value="Register" class="btn btn-info" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

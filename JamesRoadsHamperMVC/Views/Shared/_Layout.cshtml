@@ -1,0 +1,135 @@
+﻿@using System.Security;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Href("~/node_modules/bootstrap/dist/css/bootstrap.min.css")" type="text/css" rel="stylesheet" />
+    <link href="@Href("~/lib/css/Extra.css")" type="text/css" rel="stylesheet" />
+    <link href="@Href("~/lib/importBSJQ/fullSlider/vendor/bootstrap/css/bootstrap-grid.min.css")" type="text/css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+
+<body class="container-fluid pageWidth">
+    @if (User.Identity.IsAuthenticated)
+    {
+        @if (User.IsInRole("Administrator"))
+        {
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top lowerContent">
+                <h2>
+                    @Html.ActionLink("Grande Gift", "Index", "Home", new { id = "GrandeGift" },
+                   new { @class = "text-light navbar-brand active grandeText" })
+                </h2>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <span class="navbar-collapse collapse" id="navbarNav">
+                    <span class="navbar-nav ml-auto">
+                        <span>
+                            @Html.ActionLink("Home", "Index", "Home", new { id = "Home" }, 
+                           new { @class = "text-light nav-link active navText" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Shop", "Shop", "Shop", new { id = "Shop" }, 
+                           new { @class = "text-light nav-link active navText" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Manage Hampers", "AddHamper", "ManageHamper", 
+                           new { id = "AddHamper" }, new { @class = "text-light nav-link navText" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Logout", "Logout", "Account", new { id = "Logout" }, 
+                           new { @class = "text-light nav-link navText" })
+                        </span>
+                    </span>
+                </span>
+            </nav>
+        }
+        else
+        {
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top lowerContent">
+                <h2>
+                    @Html.ActionLink("Grande Gift", "Index", "Home", new { id = "GrandeGift" },
+                   new { @class = "text-light navbar-brand active grandeText" })
+                </h2>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <span class="navbar-collapse collapse" id="navbarNav">
+                    <span class="navbar-nav ml-auto">
+                        <span>
+                            @Html.ActionLink("Home", "Index", "Home", new { id = "Home" }, 
+                           new { @class = "text-light nav-link active navText" })
+                        </span>
+                        <span class="nav-link">
+                            <a class="text-light navText" href="#">About</a>
+                        </span>
+                        <span>
+                            @Html.ActionLink("Shop", "Shop", "Shop", new { id = "Shop" }, 
+                           new { @class = "text-light nav-link active navText" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Logout", "Logout", "Account", new { id = "Logout" }, 
+                           new { @class = "text-light nav-link navText" })
+                        </span>
+                    </span>
+                </span>
+            </nav>
+        }
+
+    }
+    else
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top lowerContent">
+            <h2>
+                @Html.ActionLink("Grande Gift", "Index", "Home", new { id = "GrandeGift" },
+               new { @class = "text-light navbar-brand active grandeText" })
+            </h2>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <span class="navbar-collapse collapse" id="navbarNav">
+                <span class="navbar-nav ml-auto">
+                    <span>
+                        @Html.ActionLink("Home", "Index", "Home", new { id = "Home" }, 
+                       new { @class = "text-light nav-link active navText" })
+                    </span>
+                    <span class="nav-link">
+                        <a class="text-light navText" href="#">About</a>
+                    </span>
+                    <span>
+                        @Html.ActionLink("Login", "Login", "Account", new { id = "Login" }, 
+                       new { @class = "text-light nav-link navText" })
+                    </span>
+                    <span>
+                        @Html.ActionLink("Register", "Register", "Account", new { id = "Register" }, 
+                       new { @class = "text-light nav-link navText" })
+                    </span>
+                </span>
+            </span>
+        </nav>
+    }
+
+
+    <div>
+        @RenderBody()
+    </div>
+    <div>
+        <footer class="py-5 bg-dark" style="margin-top: 10px;">
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+            </div>
+        </footer>
+    </div>
+    <script src="@Url.Content("~/node_modules/jquery/dist/jquery.js")"></script>
+    <script src="@Url.Content("~/node_modules/popper.js/dist/umd/popper.js")"></script>
+    <script src="@Url.Content("~/node_modules/bootstrap/dist/js/bootstrap.js")"></script>
+</body>
+</html>
