@@ -1,2 +1,18 @@
 ﻿@model ShopShopViewModel
 
+<div>
+    @foreach (var hamper in Model.Hampers)
+    {
+        <div>
+            <div>@hamper.Name</div>
+            <div>@hamper.Details</div>
+            <div>@hamper.Category</div>
+            <div>@hamper.Price.ToString()</div>
+        </div>
+        <span>
+            <button>
+                @Html.ActionLink("Edit", "EditHamper", "ManageHamper")
+            </button>
+        </span>
+    }
+</div>

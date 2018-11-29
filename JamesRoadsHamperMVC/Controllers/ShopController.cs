@@ -28,11 +28,11 @@ namespace JamesRoadsHamperMVC.Controllers
             //create VM
             ShopShopViewModel vm = new ShopShopViewModel
             {
-                Hampers = hamperList,
-
+                Total = hamperList.Count(),
+                Hampers = hamperList
             };
 
-            return View();
+            return View(vm);
         }
         
     }

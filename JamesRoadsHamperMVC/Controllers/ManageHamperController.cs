@@ -49,16 +49,25 @@ namespace JamesRoadsHamperMVC.Controllers
         }
         [Authorize(Roles = "Administrator")]
         [HttpGet]
-        public IActionResult EditHamper()
+        public IActionResult EditHamper(int id)
         {
-            return View();
+            Hamper hamper = _hamperService.GetSingle(h => h.HamperId == id);
+            EditHamperViewModel vm = new EditHamperViewModel
+            {
+                HamperId = hamper.HamperId,
+                Name = hamper.Name,
+                Category = hamper.Category,
+                Details = hamper.Details,
+                Price = hamper.Price
+            };
+            return View(vm);
         }
         [HttpPost]
         public IActionResult EditHamper(EditHamperViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                Hamper hamper = new Hamper
+                Hamper updatedHamper = new Hamper
                 {
                     HamperId = vm.HamperId,
                     Name = vm.Name,
@@ -66,7 +75,9 @@ namespace JamesRoadsHamperMVC.Controllers
                     Details = vm.Details,
                     Price = vm.Price
                 };
-                _hamperService.Update(hamper);
+                //save
+                _hamperService.Update(updatedHamper);
+                //go back to shop
                 return RedirectToAction("Shop", "Shop");
             }
             return View(vm);

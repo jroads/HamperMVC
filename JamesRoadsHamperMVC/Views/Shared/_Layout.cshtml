@@ -105,6 +105,10 @@
                         <a class="text-light navText" href="#">About</a>
                     </span>
                     <span>
+                        @Html.ActionLink("Shop", "Shop", "Shop", new { id = "Shop" },
+                       new { @class = "text-light nav-link active navText" })
+                    </span>
+                    <span>
                         @Html.ActionLink("Login", "Login", "Account", new { id = "Login" },
                        new { @class = "text-light nav-link navText" })
                     </span>
