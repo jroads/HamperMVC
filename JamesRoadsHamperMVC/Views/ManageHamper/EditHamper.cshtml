@@ -1,17 +1,13 @@
 ﻿@model EditHamperViewModel
 
-<div>
-    @Html.ValidationSummary()
-</div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <form asp-controller="ManageHamper" asp-action="AddHamper" method="post">
+            <form asp-controller="ManageHamper" asp-action="EditHamper" method="post">
                 <div class="mt-2">
-                    <label asp-for="HamperId" hidden="hidden"></label>
-                    <input asp-for="Name" class="form-control" hidden="hidden"/>
+                    <input asp-for="HamperId" class="form-control" hidden="hidden"/>
                 </div>
                 <div class="mt-2">
                     <label asp-for="Name"></label>
@@ -30,7 +26,7 @@
                     <input asp-for="Price" class="form-control" />
                 </div>
                 <div class="mt-2">
-                    <input type="submit" value="Add Hamper" class="btn btn-info" />
+                    <input type="submit" value="Save Changes" class="btn btn-info" />
                 </div>
             </form>
         </div>

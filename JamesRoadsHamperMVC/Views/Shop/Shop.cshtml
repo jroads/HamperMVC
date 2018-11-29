@@ -1,18 +1,49 @@
 ﻿@model ShopShopViewModel
 
 <div>
-    @foreach (var hamper in Model.Hampers)
+    @if (User.Identity.IsAuthenticated)
     {
-        <div>
-            <div>@hamper.Name</div>
-            <div>@hamper.Details</div>
-            <div>@hamper.Category</div>
-            <div>@hamper.Price.ToString()</div>
-        </div>
-        <span>
-            <button>
-                @Html.ActionLink("Edit", "EditHamper", "ManageHamper")
-            </button>
-        </span>
+        @if (User.IsInRole("Administrator"))
+        {
+            @foreach (var hamper in Model.Hampers)
+            {
+                <div>
+                    <div>@hamper.Name</div>
+                    <div>@hamper.Details</div>
+                    <div>@hamper.Category</div>
+                    <div>@hamper.Price.ToString()</div>
+                    <span>
+                        <button>
+                            @Html.ActionLink("Edit", "EditHamper", "ManageHamper", new { id = hamper.HamperId })
+                        </button>
+                    </span>
+                </div>
+            }
+        }
+        else
+        {
+            @foreach (var hamper in Model.Hampers)
+            {
+                <div>
+                    <div>@hamper.Name</div>
+                    <div>@hamper.Details</div>
+                    <div>@hamper.Category</div>
+                    <div>@hamper.Price.ToString()</div>
+                </div>
+            }
+        }
     }
+    else
+    {
+        @foreach (var hamper in Model.Hampers)
+        {
+            <div>
+                <div>@hamper.Name</div>
+                <div>@hamper.Details</div>
+                <div>@hamper.Category</div>
+                <div>@hamper.Price.ToString()</div>
+            </div>
+        }
+    }
+
 </div>
