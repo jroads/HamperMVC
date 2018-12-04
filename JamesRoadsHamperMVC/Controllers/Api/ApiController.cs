@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using JamesRoadsHamperMVC.Models;
 using JamesRoadsHamperMVC.Services;
+using System.Linq;
 
 namespace JamesRoadsHamperMVC.Controllers.Api
 {
@@ -17,14 +18,14 @@ namespace JamesRoadsHamperMVC.Controllers.Api
         [HttpGet]
         public IEnumerable<Hamper> Get()
         {
-            IEnumerable<Hamper> hampers = _hamperDataService.GetAll();
-            Hamper h = new Hamper
-            {
-                 
-            };
-            return hampers;
+            IEnumerable<Hamper> hamperList = _hamperDataService.GetAll();
+            return hamperList;
         }
-
-
+        [HttpGet("{Category}")]
+        public Hamper Get(string Category)
+        {
+            IEnumerable<Hamper> hamperList = _hamperDataService.GetAll();
+            return hamperList.Where(c => c.Category == Category).FirstOrDefault();
+        }
     }
 }
