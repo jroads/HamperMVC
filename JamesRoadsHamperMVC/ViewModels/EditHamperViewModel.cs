@@ -12,5 +12,6 @@ namespace JamesRoadsHamperMVC.ViewModels
         public string Category { get; set; }
         public string Details { get; set; }
         public double Price { get; set; }
+        public byte[] ImgUrl { get; set; }
     }
 }

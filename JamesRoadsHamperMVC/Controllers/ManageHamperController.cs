@@ -9,6 +9,8 @@ using JamesRoadsHamperMVC.Models;
 using JamesRoadsHamperMVC.ViewModels;
 using JamesRoadsHamperMVC.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace JamesRoadsHamperMVC.Controllers
 {
@@ -37,6 +39,7 @@ namespace JamesRoadsHamperMVC.Controllers
                     Category = vm.Category,
                     Details = vm.Details,
                     Price = vm.Price
+                    
                 };
                 //save into db
                 _hamperService.Create(hamper);

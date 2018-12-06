@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <form asp-controller="ManageHamper" asp-action="EditHamper" method="post">
                 <div class="mt-2">
-                    <input asp-for="HamperId" class="form-control" hidden="hidden"/>
+                    <input asp-for="HamperId" class="form-control" hidden="hidden" />
                 </div>
                 <div class="mt-2">
                     <label asp-for="Name"></label>
@@ -24,6 +24,13 @@
                 <div class="mt-2">
                     <label asp-for="Price"></label>
                     <input asp-for="Price" class="form-control" />
+                </div>
+                <div class="input-group mt-2">
+                    <input asp-for="ImgUrl" type="file"
+                           class="form-control custom-file-input"
+                           id="inputGroupFile01"
+                           aria-describedby="inputGroupFileAddon01" />
+                    <label asp-for="ImgUrl" class="custom-file-label" for="inputGroupFile01">Image URL</label>
                 </div>
                 <div class="mt-2">
                     <input type="submit" value="Save Changes" class="btn btn-info" />

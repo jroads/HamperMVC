@@ -10,5 +10,7 @@ namespace JamesRoadsHamperMVC.ViewModels
     {
         public int Total { get; set; }
         public IEnumerable<Hamper> Hampers { get; set; }
+        public string Category { get; set; }
+        public string ImgUrl { get; set; }
     }
 }

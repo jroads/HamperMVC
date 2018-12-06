@@ -12,5 +12,9 @@ namespace JamesRoadsHamperMVC.Models
         public string Category { get; set; }
         public string Details { get; set; }
         public double Price { get; set; }
+        public string ImgName { get; set; }
+        public byte[] ImgData { get; set; }
+        public long ImgSize { get; set; }
+        public string ImgType { get; set; }
     }
 }

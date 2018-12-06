@@ -34,6 +34,16 @@ namespace JamesRoadsHamperMVC.Controllers
 
             return View(vm);
         }
-        
+        //[HttpGet]
+        //public IEnumerable<Hamper> GetByCategory(ShopShopViewModel vm)
+        //{
+        //    IEnumerable<Hamper> hamper = _hamperService.GetAll();
+        //    if (ModelState.IsValid)
+        //    {
+        //        Hamper hamper = _hamperService.GetAll().Where(h => h.Category.ToLower() == vm.Category);
+        //        return View(hamper);
+        //    }
+        //    return View(vm);
+        //}
     }
 }

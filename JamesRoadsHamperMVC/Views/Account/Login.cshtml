@@ -1,18 +1,26 @@
 ﻿@model AccountLoginViewModel;
 
-<form asp-controller="Account" asp-action="Login" method="post">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form asp-controller="Account" asp-action="Login" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="mt-2">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div>
+                    <label asp-for="Password"></label>
+                    <input type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="mt-2">
+                    <input type="submit" value="Login" class="btn btn-info" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
     </div>
-    <div>
-        <label asp-for="Password"></label>
-        <input type="password" asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <input type="submit" value="Login" />
-    </div>
-</form>
+</div>
